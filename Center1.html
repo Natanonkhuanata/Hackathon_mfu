@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>รับซื้อขยะรีไซเคิลศูนย์อำเภอเมือง</title>
+    <title>รับซื้อขยะรีไซเคิลศูนย์เมือง</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* ปรับพื้นหลังให้ดูธรรมชาติ */
@@ -44,15 +44,31 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
-        /* แถบสีเขียวด้านบน */
+        /* แถบสีเขียวด้านบนเปลี่ยนเป็นรูปภาพ */
         header {
-            background-color: #4CAF50;
+            background-image: url('file:///D:/imagre_hackaton/newscms_thaihealth_c_flnopxyz2379.jpg'); /* ใช้รูปจาก path */
+            background-size: cover;
+            background-position: center;
             padding: 20px;
             color: white;
             text-align: center;
             font-size: 28px;
             font-weight: bold;
             position: relative;
+            height: 150px; /* กำหนดความสูงแถบ */
+        }
+
+        /* สไตล์ข้อความที่เด่นในแถบ */
+        header h1 {
+            position: relative;
+            z-index: 1;
+            background-color: #12a724cc; /* เพิ่มพื้นหลังเบาๆ เพื่อให้ข้อความเด่นขึ้น */
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 32px;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* เงาที่ทำให้ข้อความเด่น */
         }
 
         /* ตกแต่ง Section ฟอร์มการขาย */
@@ -174,7 +190,7 @@
 
     <!-- แถบสีเขียวด้านบน -->
     <header>
-        รับซื้อขยะรีไซเคิล
+        <h1>กรอกข้อมูล</h1>
     </header>
     <div class="sub-heading">
         ศูนย์อำเภอเมือง

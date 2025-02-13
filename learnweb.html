@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ศูนย์แลกเปลี่ยนขยะรีไซเคิล</title>
+    <title>ศูนย์รับซื้อขยะรีไซเคิล</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -45,18 +45,26 @@
 
         /* ตกแต่ง Header */
         header {
-            background-color: #4CAF50; /* สีเขียวแบบเดียวกับที่คุณต้องการ */
+            background-image: url('file:///D:/imagre_hackaton/newscms_thaihealth_c_flnopxyz2379.jpg'); /* ใช้รูปจาก path */
+            background-size: cover;
             color: white;
-            padding: 20px 0;
+            padding: 60px 0; /* เพิ่ม padding เพื่อให้ข้อความดูโดดเด่น */
             text-align: center;
             position: relative;
             z-index: 1;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
+        /* ตีกรอบเฉพาะข้อความใน header */
         header h1 {
             font-size: 40px;
             font-weight: bold;
+            text-transform: uppercase;
+            /*border: 2px solid #FF5722; /* ตีกรอบข้อความ */
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.785); /* เพิ่มพื้นหลังให้กรอบเห็นชัด */
         }
 
         /* ตกแต่ง Navigation */
@@ -79,10 +87,8 @@
             padding: 10px;
             border-radius: 5px;
             transition: background 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            background-color: darkgreen;
+            /*border: 2px solid #FF5722; เพิ่มกรอบให้ปุ่ม */
+            background-color: rgba(11, 110, 29, 0.8); /* เพิ่มสีพื้นหลังที่แตกต่างจากแถบ */
         }
 
         /* ตกแต่งปุ่มเลือกศูนย์ */
@@ -93,7 +99,7 @@
 
         .center-buttons button {
             background: #FF5722; /* เปลี่ยนสีพื้นหลังเป็นสีส้ม */
-            color: rgb(0, 0, 0);
+            color: white;
             border: none;
             padding: 12px 20px;
             margin: 10px;
@@ -104,7 +110,7 @@
         }
 
         .center-buttons button:hover {
-            background: #FF7043; /* สีที่เปลี่ยนเมื่อ hover เป็นสีส้มอ่อน */
+            background: #119732; /* สีที่เปลี่ยนเมื่อ hover เป็นสีส้มอ่อน */
         }
 
         /* ตกแต่งส่วนของราคาขยะ */
@@ -115,6 +121,13 @@
             border-radius: 15px;
             max-width: 900px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 30px;
+            text-align: center;
+            color: #333;
+            font-weight: bold;
         }
 
         table {
@@ -142,14 +155,6 @@
             background-color: #f9f9f9;
         }
 
-        /* เพิ่มฟอนต์ให้ส่วนอื่น */
-        h2 {
-            font-size: 30px;
-            text-align: center;
-            color: #333;
-            font-weight: bold;
-        }
-
     </style>
 </head>
 <body>
@@ -160,14 +165,10 @@
     </div>
     
     <header>
-        <h1>ศูนย์แลกเปลี่ยนขยะรีไซเคิล</h1>
-        <nav>
-            <ul>
-                <li><a href="#prices">ราคาขยะรีไซเคิล</a></li>
-                <li><a href="sell_recycle.html">ขายขยะรีไซเคิล</a></li>
-            </ul>
-        </nav>
+        <h1>ศูนย์รับซื้อขยะรีไซเคิล</h1>
     </header>
+
+    
 
     <div class="center-buttons">
         <button onclick="center1()">ศูนย์อำเภอเมือง</button>
