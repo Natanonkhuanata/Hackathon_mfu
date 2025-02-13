@@ -16,6 +16,18 @@
             background-position: center;
             margin: 0;
         }
+
+        .header {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 32px;
+            color: #003366; /* ใช้สีน้ำเงินเข้ม */
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
         .login-container {
             background: rgba(255, 255, 255, 0.9);
             padding: 30px;
@@ -24,9 +36,13 @@
             text-align: center;
             width: 350px;
         }
+
         h2 {
             color: #2c5f2d;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
+
         input {
             width: 100%;
             padding: 12px;
@@ -35,6 +51,7 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
+
         button {
             width: 100%;
             padding: 12px;
@@ -46,9 +63,11 @@
             font-size: 16px;
             transition: 0.3s;
         }
+
         button:hover {
             background-color: #3a7d44;
         }
+
         .signup-btn {
             width: 100%;
             padding: 12px;
@@ -61,18 +80,40 @@
             font-size: 16px;
             transition: 0.3s;
         }
+
         .signup-btn:hover {
             background-color: #0056b3;
+        }
+
+        .image-container {
+            margin: 20px 0; /* เพิ่มระยะห่างจากข้อความและปุ่ม */
+        }
+
+        .image-container img {
+            width: 100%; /* ขนาดภาพตามขนาดของ div */
+            max-width: 300px; /* จำกัดขนาดสูงสุดของภาพ */
+            height: auto;
+            display: block;
+            margin: 0 auto; /* จัดตำแหน่งให้ภาพอยู่ตรงกลาง */
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        บริษัท ไทยรักโลก
+    </div>
+    
     <div class="login-container">
+        <div class="image-container">
+            <!-- ใส่ path ของรูปภาพใน src ที่ต้องการ -->
+            <img src="file:///D:/imagre_hackaton/EnvoiroTech.png" alt="EnvoiroTech Logo">
+        </div>
+        
         <h2>เข้าสู่ระบบ</h2>
         <input type="text" id="username" placeholder="ชื่อผู้ใช้">
         <input type="password" id="password" placeholder="รหัสผ่าน">
         <button onclick="login()">เข้าสู่ระบบ</button>
-        <button class="signup-btn" onclick="window.location.href='signup.html'">สมัครสมาชิก</button>
+        <button class="signup-btn" onclick="window.location.href='Create_account.html'">สมัครสมาชิก</button>
     </div>
 
     <script>
@@ -81,7 +122,6 @@
             var password = document.getElementById("password").value;
             
             if (username === "admin" && password === "1234") {
-                
                 window.location.href = "learnweb.html";
             } else {
                 alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");

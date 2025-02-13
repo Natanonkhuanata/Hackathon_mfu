@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สมัครสมาชิก</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://source.unsplash.com/1600x900/?forest,nature');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+        }
+        .signup-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+        }
+        h2 {
+            color: #2c5f2d;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #2c5f2d;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2c5f2d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #3a7d44;
+        }
+        .back-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #8B4513;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #5a3212;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>สมัครสมาชิก</h2>
+        <input type="text" id="fullname" placeholder="ชื่อ-นามสกุล">
+        <span id="errorFullname" class="error">กรุณากรอกชื่อ-นามสกุล</span>
+
+        <input type="text" id="username" placeholder="ชื่อผู้ใช้">
+        <span id="errorUsername" class="error">กรุณากรอกชื่อผู้ใช้</span>
+
+        <input type="password" id="password" placeholder="รหัสผ่าน">
+        <span id="errorPassword" class="error">กรุณากรอกรหัสผ่าน</span>
+
+        <input type="password" id="confirmPassword" placeholder="ยืนยันรหัสผ่าน">
+        <span id="errorConfirmPassword" class="error">รหัสผ่านไม่ตรงกัน</span>
+
+        <button onclick="register()">สมัครสมาชิก</button>
+        <button class="back-btn" onclick="window.location.href='front_end.html'">ย้อนกลับ</button>
+    </div>
+
+    <script>
+        function register() {
+            var fullname = document.getElementById("fullname").value;
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            // ซ่อนข้อความผิดพลาดก่อน
+            document.getElementById("errorFullname").style.display = "none";
+            document.getElementById("errorUsername").style.display = "none";
+            document.getElementById("errorPassword").style.display = "none";
+            document.getElementById("errorConfirmPassword").style.display = "none";
+
+            // ตรวจสอบว่ากรอกข้อมูลครบหรือไม่
+            var isValid = true;
+
+            if (fullname === "") {
+                document.getElementById("errorFullname").style.display = "block";
+                isValid = false;
+            }
+            if (username === "") {
+                document.getElementById("errorUsername").style.display = "block";
+                isValid = false;
+            }
+            if (password === "") {
+                document.getElementById("errorPassword").style.display = "block";
+                isValid = false;
+            }
+            if (confirmPassword !== password) {
+                document.getElementById("errorConfirmPassword").style.display = "block";
+                isValid = false;
+            }
+
+            // ถ้าทุกอย่างถูกต้องให้แสดง Alert และเปลี่ยนไปหน้า Login
+            if (isValid) {
+                window.location.href = "learnweb.html";
+            }
+            else {
+                alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+            }
+        }
+
+        function goBack() {
+            window.location.href = "login.html";
+    
+        }
+    </script>
+</body>
+</html>

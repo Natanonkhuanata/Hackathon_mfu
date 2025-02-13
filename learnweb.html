@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-image: url('https://source.unsplash.com/1600x900/?nature,green');
@@ -15,46 +15,164 @@
             background-position: center;
             color: #333;
         }
-        header {
-            background: rgba(0, 100, 0, 0.8);
-            color: white;
-            padding: 15px 0;
-            text-align: center;
+
+        /* ตกแต่งโลโก้ */
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.6); /* เพิ่มพื้นหลังเพื่อให้ชื่อบริษัทเด่นขึ้น */
+            padding: 10px;
+            border-radius: 8px;
         }
+
+        .logo-container img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .header-text {
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* ตกแต่ง Header */
+        header {
+            background-color: #4CAF50; /* สีเขียวแบบเดียวกับที่คุณต้องการ */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        /* ตกแต่ง Navigation */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: darkgreen;
+        }
+
+        /* ตกแต่งปุ่มเลือกศูนย์ */
         .center-buttons {
             text-align: center;
-            margin: 15px 0;
+            margin: 20px 0;
         }
+
         .center-buttons button {
-            background: darkgreen;
+            background: #2c6e2f;
             color: white;
             border: none;
-            padding: 10px 15px;
-            margin: 5px;
+            padding: 12px 20px;
+            margin: 10px;
             cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background 0.3s ease;
         }
+
         .center-buttons button:hover {
-            background: green;
+            background: #3b9d43;
         }
+
+        /* ตกแต่งส่วนของราคาขยะ */
+        section {
+            background: rgba(255, 255, 255, 0.9);
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 900px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid green;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        /* เพิ่มฟอนต์ให้ส่วนอื่น */
+        h2 {
+            font-size: 30px;
+            text-align: center;
+            color: #333;
+            font-weight: bold;
+        }
+
     </style>
 </head>
 <body>
+    <div class="logo-container">
+        <!-- ใส่ path ของรูปโลโก้ -->
+        <img src="file:///D:/imagre_hackaton/EnvoiroTech.png" alt="Logo">
+        <div class="header-text">บริษัท ไทยรักโลก</div>
+    </div>
+    
     <header>
         <h1>ศูนย์แลกเปลี่ยนขยะรีไซเคิล</h1>
         <nav>
             <ul>
                 <li><a href="#prices">ราคาขยะรีไซเคิล</a></li>
-                <li><a href="#sell">ขายขยะรีไซเคิล</a></li>
+                <li><a href="sell_recycle.html">ขายขยะรีไซเคิล</a></li>
             </ul>
         </nav>
     </header>
-    
+
     <div class="center-buttons">
-        <button onclick="location.href='center_mueng.html'">ศูนย์อำเภอเมือง</button>
-        <button onclick="location.href='center_maechan.html'">ศูนย์แม่จัน</button>
-        <button onclick="location.href='center_maelao.html'">ศูนย์แม่ลาว</button>
+        <button onclick="center1()">ศูนย์อำเภอเมือง</button>
+        <button onclick="center2()">ศูนย์อำเภอเเม่จัน</button>
+        <button onclick="center3()">ศูนย์อำเภอเเม่ลาว</button>
     </div>
     
     <section id="prices">
@@ -64,38 +182,59 @@
                 <th>ประเภทขยะ</th>
                 <th>ราคาต่อกิโลกรัม (บาท)</th>
             </tr>
-            <tr><td>ขวดพลาสติก</td><td>5</td></tr>
-            <tr><td>กระป๋องอลูมิเนียม</td><td>15</td></tr>
-            <tr><td>ขวดแก้ว</td><td>3</td></tr>
+            <tr>
+                <td>ขวดพลาสติก</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>กระป๋องอลูมิเนียม</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>ขวดแก้ว</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>ทองแดงใหญ่ปอกสวยใหม่</td>
+                <td>287.00</td>
+            </tr>
+            <tr>
+                <td>ทองแดงเล็กปอกสวยใส</td>
+                <td>270.00</td>
+            </tr>
+            <tr>
+                <td>ทองแดงปอกช๊อตดำ</td>
+                <td>265.00</td>
+            </tr>
+            <tr>
+                <td>ท่อ PVC ฟ้า</td>
+                <td>4.00</td>
+            </tr>
+            <tr>
+                <td>ลีโอ (พร้อมลัง)</td>
+                <td>11.00</td>
+            </tr>
+            <tr>
+                <td>ช้าง (พร้อมลัง)</td>
+                <td>11.00</td>
+            </tr>
+            <tr>
+                <td>สิงห์ (พร้อมลัง)</td>
+                <td>10.00</td>
+            </tr>
         </table>
     </section>
-    
-    <section id="sell">
-        <h2>ขายขยะรีไซเคิล</h2>
-        <form id="sellForm">
-            <label for="name">ชื่อ:</label>
-            <input type="text" id="name" required>
 
-            <label for="item">ประเภทขยะ:</label>
-            <label for="item" style="font-size: 12px; color: #555;">ดูจากด้านบนได้ครับ !!:</label>
-            <input type="text" id="item" required>
-
-            <label for="quantity">จำนวน (กิโลกรัม):</label>
-            <input type="number" id="quantity" required>
-
-            <label for="address">ที่อยู่:</label>
-            <textarea id="address" required></textarea>
-
-            <button type="submit">ส่งข้อมูล</button>
-        </form>
-        <p id="confirmation" style="display: none; color: green; font-size: 18px; font-weight: bold;">คำขอของคุณถูกส่งเรียบร้อยแล้ว!</p>
-    </section>
-    
     <script>
-        document.getElementById('sellForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            document.getElementById('confirmation').style.display = 'block';
-        });
+        function center1() {
+            window.location.href = "Center1.html";
+        }
+        function center2() {
+            window.location.href = "Center2.html";
+        }
+        function center3() {
+            window.location.href = "Center3.html";
+        }
     </script>
 </body>
 </html>

@@ -1,0 +1,190 @@
+<!-- ศูนย์เเม่จัน -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รับซื้อขยะรีไซเคิล</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ปรับพื้นหลังให้ดูธรรมชาติ */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://source.unsplash.com/1600x900/?nature,green');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+
+        /* ใส่โลโก้บริษัทและชื่อบริษัท */
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.6); /* เพิ่มพื้นหลังเพื่อทำให้ชื่อบริษัทเด่นขึ้น */
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .logo-container img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .logo-container .company-name {
+            font-size: 26px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* แถบสีเขียวด้านบน */
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        /* ตกแต่ง Section ฟอร์มการขาย */
+        section {
+            background: rgba(255, 255, 255, 0.9);
+            margin: 20px auto;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 800px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 30px;
+            text-align: center;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* เพิ่มข้อความใต้หัวข้อ */
+        .sub-heading {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            font-weight: normal;
+            margin-top: 10px;
+        }
+
+        label {
+            font-size: 16px;
+            margin: 10px 0 5px;
+            display: block;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        /* ปรับสไตล์ปุ่มให้โดดเด่น */
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        /* สไตล์ข้อความยืนยัน */
+        #confirmation {
+            color: green;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* ปรับแต่งฟอร์ม textarea ให้ดูน่าสนใจ */
+        textarea {
+            min-height: 100px;
+        }
+
+        /* เพิ่มกรอบเงาที่ป้อนข้อมูล */
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        /* เพิ่มฟอนต์การ์ดสวยๆ สำหรับคำอธิบาย */
+        .address-info {
+            font-size: 12px;
+            color: #cf2f2f;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- โลโก้และชื่อบริษัท -->
+    <div class="logo-container">
+        <img src="file:///D:/imagre_hackaton/EnvoiroTech.png" alt="Logo">
+        <div class="company-name">บริษัท ไทยรักโลก</div>
+    </div>
+
+    <!-- แถบสีเขียวด้านบน -->
+    <header>
+        รับซื้อขยะรีไซเคิล
+    </header>
+    <div class="sub-heading">
+        ศูนย์อำเภอเเม่จัน
+    </div>
+
+    <!-- ฟอร์มการขายขยะรีไซเคิล -->
+    <section id="sell">
+        <form id="sellForm">
+            <label for="name">ชื่อ:</label>
+            <input type="text" id="name" required>
+
+            <label for="item">ประเภทขยะ:</label>
+            <input type="text" id="item" required>
+
+            <label for="quantity">จำนวน (กิโลกรัม):</label>
+            <input type="number" id="quantity" required>
+
+            <label for="address">ที่อยู่:</label>
+            <div class="address-info">ชุมชน/อำเภอ/จังหวัด/รหัสไปรษณี</div>
+            <textarea id="address" required></textarea>
+
+            <button type="submit">ส่งข้อมูล</button>
+        </form>
+        <p id="confirmation" style="display: none;">คำขอของคุณถูกส่งเรียบร้อยแล้ว!</p>
+    </section>
+
+    <script>
+        document.getElementById('sellForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('confirmation').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
