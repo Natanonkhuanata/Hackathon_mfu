@@ -39,6 +39,19 @@
         button:hover {
             background-color: #218838;
         }
+        .signup-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .signup-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -47,6 +60,7 @@
         <input type="text" id="username" placeholder="Enter Username">
         <input type="password" id="password" placeholder="Enter Password">
         <button onclick="login()">Login</button>
+        <button class="signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
     </div>
 
     <script>
@@ -56,7 +70,7 @@
             
             if (username === "admin" && password === "1234") {
                 alert("Login successful!");
-                window.location.href = "welcome.html";
+                window.location.href = "learnweb.html";
             } else {
                 alert("Invalid username or password");
             }

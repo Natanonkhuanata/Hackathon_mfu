@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ราคาสินค้า</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #343a40;
+        }
+
+        .category-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .category-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 28%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .category-box h2 {
+            color: #000000;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            color: #28a745;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>ราคาสินค้า</h1>
+
+        <!-- Categories of Products -->
+        <div class="category-container">
+            <!-- Plastic Category -->
+            <div class="category-box">
+                <h2>พลาสติก</h2>
+                <button onclick="showPrice('plastic')">ดูราคาผลิตภัณฑ์</button>
+            </div>
+
+            <!-- Brass Category -->
+            <div class="category-box">
+                <h2>ทองเหลือง</h2>
+                <button onclick="showPrice('brass')">ดูราคาผลิตภัณฑ์</button>
+            </div>
+
+
+            <div class="category-box">
+                <h2>ทองเเดง</h2>
+                <button onclick="showPrice('brass')">ดูราคาผลิตภัณฑ์</button>
+            </div>
+
+
+
+            <div class="category-box">
+                <h2>ทองเหลืองบาง</h2>
+                <button onclick="showPrice('brass')">ดูราคาผลิตภัณฑ์</button>
+            </div>
+
+            <div class="category-box">
+                <h2>ทองแดงใหญ่ปอกสวยใหม่</h2>
+                <button onclick="showPrice('brass')">ดูราคาผลิตภัณฑ์</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function showPrice(category) {
+            let priceMessage = "";
+
+            if (category === "plastic") {
+                priceMessage = "ราคาสินค้าประเภทพลาสติก: ฿10,000";
+            } else if (category === "brass") {
+                priceMessage = "ราคาสินค้าประเภททองเหลือง: ฿25,000";
+            } else if (category === "electronics") {
+                priceMessage = "ราคาสินค้าประเภทอุปกรณ์อิเล็กทรอนิกส์: ฿5,000";
+            }
+
+            alert(priceMessage);
+        }
+    </script>
+
+</body>
+</html>
