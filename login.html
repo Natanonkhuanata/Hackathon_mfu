@@ -11,43 +11,55 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-image: url('https://source.unsplash.com/1600x900/?nature,trees');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
         }
         .login-container {
-            background: white;
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
+            width: 350px;
+        }
+        h2 {
+            color: #2c5f2d;
         }
         input {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin: 10px 0;
-            border: 1px solid #ccc;
+            border: 2px solid #2c5f2d;
             border-radius: 5px;
+            box-sizing: border-box;
         }
         button {
             width: 100%;
-            padding: 10px;
-            background-color: #28a745;
+            padding: 12px;
+            background-color: #2c5f2d;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
         }
         button:hover {
-            background-color: #218838;
+            background-color: #3a7d44;
         }
         .signup-btn {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background-color: #007bff;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             margin-top: 10px;
+            font-size: 16px;
+            transition: 0.3s;
         }
         .signup-btn:hover {
             background-color: #0056b3;
@@ -56,11 +68,11 @@
 </head>
 <body>
     <div class="login-container">
-        <h2>Login</h2>
-        <input type="text" id="username" placeholder="Enter Username">
-        <input type="password" id="password" placeholder="Enter Password">
-        <button onclick="login()">Login</button>
-        <button class="signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
+        <h2>เข้าสู่ระบบ</h2>
+        <input type="text" id="username" placeholder="ชื่อผู้ใช้">
+        <input type="password" id="password" placeholder="รหัสผ่าน">
+        <button onclick="login()">เข้าสู่ระบบ</button>
+        <button class="signup-btn" onclick="window.location.href='signup.html'">สมัครสมาชิก</button>
     </div>
 
     <script>
@@ -69,10 +81,10 @@
             var password = document.getElementById("password").value;
             
             if (username === "admin" && password === "1234") {
-                alert("Login successful!");
+                
                 window.location.href = "learnweb.html";
             } else {
-                alert("Invalid username or password");
+                alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
             }
         }
     </script>

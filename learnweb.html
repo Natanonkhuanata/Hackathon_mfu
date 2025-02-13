@@ -3,124 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ราคาสินค้า</title>
+    <title>ศูนย์แลกเปลี่ยนขยะรีไซเคิล</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Global Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
             margin: 0;
             padding: 0;
+            background-image: url('https://source.unsplash.com/1600x900/?nature,green');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+        header {
+            background: rgba(0, 100, 0, 0.8);
+            color: white;
+            padding: 15px 0;
             text-align: center;
         }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px;
+        nav ul {
+            list-style: none;
+            padding: 0;
         }
-
-        h1 {
-            color: #343a40;
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
         }
-
-        .category-container {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 30px;
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
         }
-
-        .category-box {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            width: 28%;
+        section {
+            background: rgba(255, 255, 255, 0.8);
+            margin: 20px auto;
             padding: 20px;
-            text-align: center;
+            border-radius: 10px;
+            max-width: 800px;
         }
-
-        .category-box h2 {
-            color: #000000;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
-
-        .price {
-            font-size: 1.5rem;
-            color: #28a745;
-            margin-top: 10px;
+        table, th, td {
+            border: 1px solid green;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
-
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
         button {
-            padding: 10px 20px;
-            background-color: #007bff;
+            background: green;
             color: white;
             border: none;
-            border-radius: 5px;
+            padding: 10px 15px;
             cursor: pointer;
-            margin-top: 20px;
-            font-size: 1rem;
+            border-radius: 5px;
         }
-
         button:hover {
-            background-color: #0056b3;
+            background: darkgreen;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        label {
+            font-size: 16px;
+            margin: 10px 0 5px;
+            display: block;
+        }
+        #confirmation {
+            color: green;
+            font-size: 18px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>ศูนย์แลกเปลี่ยนขยะรีไซเคิล</h1>
+        <nav>
+            <ul>
+                <li><a href="#prices">ราคาขยะรีไซเคิล</a></li>
+                <li><a href="#sell">ขายขยะรีไซเคิล</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="prices">
+        <h2>ราคาขยะรีไซเคิล</h2>
+        <table>
+            <tr>
+                <th>ประเภทขยะ</th>
+                <th>ราคาต่อกิโลกรัม (บาท)</th>
+            </tr>
+            <tr>
+                <td>ขวดพลาสติก</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>กระป๋องอลูมิเนียม</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>ขวดแก้ว</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>ทองแดงใหญ่ปอกสวยใหม่</td>
+                <td>287.00</td>
+            </tr>
+            <tr>
+                <td>ทองแดงเล็กปอกสวยใส</td>
+                <td>270.00</td>
+            </tr>
+            <tr>
+                <td>ทองแดงปอกช๊อตดำ</td>
+                <td>265.00</td>
+            </tr>
+            <tr>
+                <td>ท่อ PVC ฟ้า</td>
+                <td>4.00</td>
+            </tr>
+            <tr>
+                <td>ลีโอ (พร้อมลัง)</td>
+                <td>11.00</td>
+            </tr>
+            <tr>
+                <td>ช้าง (พร้อมลัง)</td>
+                <td>11.00</td>
+            </tr>
+            <tr>
+                <td>สิงห์ (พร้อมลัง)</td>
+                <td>10.00</td>
+            </tr>
+        </table>
+    </section>
+    
+    <section id="sell">
+        <h2>ขายขยะรีไซเคิล</h2>
+        <form id="sellForm">
+            <label for="name">ชื่อ:</label>
+            <input type="text" id="name" required>
 
-    <div class="container">
-        <h1>ราคาสินค้า</h1>
+            <label for="item">ประเภทขยะ:</label>
+            <label for="item" style="font-size: 12px; color: #555;">ดูจากด้านบนได้ครับ !!:</label>
+            <input type="text" id="item" required>
 
-        <!-- Categories of Products -->
-        <div class="category-container">
-            <!-- Plastic Category -->
-            <div class="category-box">
-                <h2>พลาสติก</h2>
-                <button onclick="showPrice('plastic')">ดูราคาผลิตภัณฑ์</button>
-            </div>
+            <label for="quantity">จำนวน (กิโลกรัม):</label>
+            <input type="number" id="quantity" required>
 
-            <!-- Brass Category -->
-            <div class="category-box">
-                <h2>ทองเหลือง</h2>
-                <button onclick="showPrice('brass')">ดูราคาผลิตภัณฑ์</button>
-            </div>
+            <label for="address">ที่อยู่:</label>
+            <textarea id="address" required></textarea>
 
-
-            <div class="category-box">
-                <h2>ทองเเดง</h2>
-                <button onclick="showPrice('brass')">ดูราคาผลิตภัณฑ์</button>
-            </div>
-
-
-
-            <div class="category-box">
-                <h2>ทองเหลืองบาง</h2>
-                <button onclick="showPrice('brass')">ดูราคาผลิตภัณฑ์</button>
-            </div>
-
-            <div class="category-box">
-                <h2>ทองแดงใหญ่ปอกสวยใหม่</h2>
-                <button onclick="showPrice('brass')">ดูราคาผลิตภัณฑ์</button>
-            </div>
-
-        </div>
-
-    </div>
-
-    <script>
-        function showPrice(category) {
-            let priceMessage = "";
-
-            if (category === "plastic") {
-                priceMessage = "ราคาสินค้าประเภทพลาสติก: ฿10,000";
-            } else if (category === "brass") {
-                priceMessage = "ราคาสินค้าประเภททองเหลือง: ฿25,000";
-            } else if (category === "electronics") {
-                priceMessage = "ราคาสินค้าประเภทอุปกรณ์อิเล็กทรอนิกส์: ฿5,000";
-            }
-
-            alert(priceMessage);
-        }
-    </script>
-
+            <button type="submit">ส่งข้อมูล</button>
+        </form>
+        <p id="confirmation" style="display: none;">คำขอของคุณถูกส่งเรียบร้อยแล้ว!</p>
+    </section>
+    
+    <script src="script.js"></script>
 </body>
 </html>
