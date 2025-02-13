@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>รับซื้อขยะรีไซเคิลศูนย์อำเภอเเม่ลาว</title>
+    <title>สะสมเเต้ม</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script> <!-- โหลด SheetJS -->
     <style>
-        /* ปรับพื้นหลังให้ดูธรรมชาติ */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -18,7 +17,6 @@
             color: #333;
         }
 
-        /* ใส่โลโก้บริษัทและชื่อบริษัท */
         .logo-container {
             position: absolute;
             top: 20px;
@@ -26,7 +24,7 @@
             display: flex;
             align-items: center;
             z-index: 10;
-            background-color: rgba(0, 0, 0, 0.6); /* เพิ่มพื้นหลังเพื่อทำให้ชื่อบริษัทเด่นขึ้น */
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 10px;
             border-radius: 8px;
         }
@@ -45,9 +43,8 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
-        /* แถบสีเขียวด้านบนเปลี่ยนเป็นรูปภาพ */
         header {
-            background-image: url('file:///D:/imagre_hackaton/newscms_thaihealth_c_flnopxyz2379.jpg'); /* ใช้รูปจาก path */
+            background-image: url('file:///D:/imagre_hackaton/newscms_thaihealth_c_flnopxyz2379.jpg');
             background-size: cover;
             background-position: center;
             padding: 20px;
@@ -56,23 +53,21 @@
             font-size: 28px;
             font-weight: bold;
             position: relative;
-            height: 150px; /* กำหนดความสูงแถบ */
+            height: 150px;
         }
 
-        /* สไตล์ข้อความที่เด่นในแถบ */
         header h1 {
             position: relative;
             z-index: 1;
-            background-color: #12a724cc; /* เพิ่มพื้นหลังเบาๆ เพื่อให้ข้อความเด่นขึ้น */
+            background-color: #12a724cc;
             display: inline-block;
             padding: 10px 20px;
             border-radius: 8px;
             font-size: 32px;
             color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* เงาที่ทำให้ข้อความเด่น */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
-        /* ตกแต่ง Section ฟอร์มการขาย */
         section {
             background: rgba(255, 255, 255, 0.9);
             margin: 20px auto;
@@ -89,7 +84,6 @@
             font-weight: bold;
         }
 
-        /* เพิ่มข้อความใต้หัวข้อ */
         .sub-heading {
             text-align: center;
             font-size: 18px;
@@ -114,7 +108,6 @@
             box-sizing: border-box;
         }
 
-        /* ปรับสไตล์ปุ่มให้โดดเด่น */
         button {
             background: #4CAF50;
             color: white;
@@ -131,7 +124,6 @@
             background: #45a049;
         }
 
-        /* สไตล์ข้อความยืนยัน */
         #confirmation {
             color: green;
             font-size: 18px;
@@ -140,33 +132,29 @@
             margin-top: 20px;
         }
 
-        /* ปรับแต่งฟอร์ม textarea ให้ดูน่าสนใจ */
         textarea {
             min-height: 100px;
         }
 
-        /* เพิ่มกรอบเงาที่ป้อนข้อมูล */
         input:focus, textarea:focus {
             outline: none;
             border-color: #4CAF50;
             box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
         }
 
-        /* เพิ่มฟอนต์การ์ดสวยๆ สำหรับคำอธิบาย */
         .address-info {
             font-size: 12px;
-            color: #6bbff6;
+            color: #cf2f2f;
             margin-bottom: 10px;
         }
 
-        /* ปรับแต่งปุ่มย้อนกลับ */
         .back-button-container {
             text-align: center;
             margin-top: 30px;
         }
 
         .back-button-container button {
-            background: #d32f2f; /* สีแดงสด */
+            background: #d32f2f;
             color: white;
             border: none;
             padding: 12px 20px;
@@ -174,123 +162,153 @@
             border-radius: 8px;
             font-size: 18px;
             transition: background 0.3s ease;
-            width: 200px; /* กำหนดความกว้างให้เหมาะสม */
+            width: 200px;
         }
 
         .back-button-container button:hover {
-            background: #c2185b; /* สีแดงเข้มเมื่อโฮเวอร์ */
+            background: #c2185b;
         }
 
-        /* สไตล์ของปุ่มสะสมแต้ม */
-    .points-button {
-        background: #4fb9d6; /* สีส้มสด */
-        color: white;
-        border: none;
-        padding: 12px 20px;
-        cursor: pointer;
-        border-radius: 8px;
-        font-size: 18px;
-        transition: background 0.3s ease;
-        width: 200px; /* ความกว้างของปุ่ม */
-        margin-left: 20px; /* เว้นระยะห่างจากปุ่มย้อนกลับ */
-    }
+        .points-button {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background 0.3s ease;
+            width: 200px;
+            margin-left: 20px;
+        }
 
-    /* เมื่อโฮเวอร์ปุ่มสะสมแต้ม */
-    .points-button:hover {
-        background: #f57c00; /* สีส้มเข้มเมื่อโฮเวอร์ */
-    }
+        .points-button:hover {
+            background: #f57c00;
+        }
 
-    /* ปรับเปลี่ยนสไตล์ให้ปุ่มดูเด่น */
-    .back-button-container button {
-        background: #d32f2f; /* สีแดงสด */
-        color: white;
-        border: none;
-        padding: 12px 20px;
-        cursor: pointer;
-        border-radius: 8px;
-        font-size: 18px;
-        transition: background 0.3s ease;
-        width: 200px; /* กำหนดความกว้างให้เหมาะสม */
-    }
+        .point-info-container {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+        }
 
-    .back-button-container button:hover {
-        background: #c2185b; /* สีแดงเข้มเมื่อโฮเวอร์ */
-    }
+        .point-info-container h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .point-info-container p {
+            font-size: 16px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
-    <!-- โลโก้และชื่อบริษัท -->
     <div class="logo-container">
         <img src="file:///D:/imagre_hackaton/EnvoiroTech.png" alt="Logo">
         <div class="company-name">บริษัท ไทยรักโลก</div>
     </div>
 
-    <!-- แถบสีเขียวด้านบน -->
     <header>
-        <h1>กรอกข้อมูล</h1>
+        <h1>กรอกข้อมูลสะสมเเต้ม</h1>
     </header>
-    <div class="sub-heading">
-        ศูนย์อำเภอเเเม่ลาว
-    </div>
 
-    <!-- ฟอร์มการขายขยะรีไซเคิล -->
     <section id="sell">
         <form id="sellForm">
             <label for="name">ชื่อ:</label>
-            <div class="address-info">ชื่อของท่านเอง</div>
+            <div class="address-info">ชื่อ-นามสกุล</div>
             <input type="text" id="name" required>
 
             <label for="item">ประเภทขยะ:</label>
             <input type="text" id="item" required>
 
             <label for="quantity">จำนวน (กิโลกรัม):</label>
-            <input type="number" id="quantity" required>
-
-            <label for="phone">เบอร์โทร:</label>
-            <input type="number" id="phone" required>
-
-            <label for="address">ที่อยู่:</label>
-            <div class="address-info">ชุมชน/อำเภอ/จังหวัด/รหัสไปรษณี</div>
-            <textarea id="address" required></textarea>
+            <input type="number" id="quantity" required max="100">
 
             <button type="submit">ส่งข้อมูล</button>
         </form>
         <p id="confirmation" style="display: none;">คำขอของคุณถูกส่งเรียบร้อยแล้ว!</p>
+        <p id="pointsMessage" style="display: none;"></p> <!-- แสดงแต้มที่ได้ -->
     </section>
 
-    <!-- ปุ่มย้อนกลับ -->
     <div class="back-button-container">
         <button onclick="window.history.back()">ย้อนกลับ</button>
-        <button class="points-button" onclick="window.location.href='points.html'">สะสมเเต้ม</button>
+        <button class="points-button" onclick="window.location.href='learnweb.html'">เสร็จสิ้น</button>
+    </div>
+
+    <div class="point-info-container">
+        <h3>ข้อมูลการสะสมแต้ม</h3>
+        <p>จำกัดการสะสมแต้มต่อครั้งไม่เกิน 100 กิโลกรัม</p>
+        <p><strong>พลาสติก PET:</strong> 1 กก. = 5 แต้ม</p>
+        <p><strong>กระดาษ:</strong> 1 กก. = 5 แต้ม</p>
+        <p><strong>แก้ว:</strong> 1 กก. = 3 แต้ม</p>
+        <p><strong>โลหะ:</strong> 1 กก. = 5 แต้ม</p>
     </div>
 
     <script>
+        // ฟังก์ชันคำนวณแต้ม
+        function calculatePoints(item, quantity) {
+            let points = 0;
+            switch (item.toLowerCase()) {
+                case "พลาสติก pet":
+                    points = quantity * 5;
+                    break;
+                case "กระดาษ":
+                    points = quantity * 5;
+                    break;
+                case "แก้ว":
+                    points = quantity * 3;
+                    break;
+                case "โลหะ":
+                    points = quantity * 5;
+                    break;
+                default:
+                    points = 0;
+                    break;
+            }
+            return points;
+        }
+
+        // การส่งข้อมูลและแสดงแต้ม
         document.getElementById("sellForm").addEventListener("submit", function(event) {
             event.preventDefault();
 
-            // เก็บข้อมูลที่กรอก
+            const quantity = document.getElementById('quantity').value;
+            const item = document.getElementById('item').value;
+            const name = document.getElementById('name').value;
+
+            if (quantity > 100) {
+                alert("จำนวนขยะไม่สามารถเกิน 100 กิโลกรัมได้");
+                return;
+            }
+
+            // คำนวณแต้ม
+            const points = calculatePoints(item, quantity);
+
             const formData = {
-                name: document.getElementById('name').value,
-                item: document.getElementById('item').value,
-                quantity: document.getElementById('quantity').value,
-                phone: document.getElementById('phone').value,
-                address: document.getElementById('address').value
+                name: name,
+                item: item,
+                quantity: quantity,
+                points: points
             };
 
-            // รับข้อมูลจาก localStorage ถ้ามี
             let existingData = localStorage.getItem('ข้อมูลขยะในเดือนนี้');
             existingData = existingData ? JSON.parse(existingData) : [];
-
-            // เพิ่มข้อมูลใหม่เข้าไปใน array
             existingData.push(formData);
 
-            // เก็บข้อมูลกลับไปใน localStorage
             localStorage.setItem('excelData', JSON.stringify(existingData));
 
-            // แสดงข้อความยืนยัน
+            // แสดงข้อความยืนยันการส่งข้อมูล
             document.getElementById('confirmation').style.display = 'block';
+            // แสดงผลแต้มที่ได้
+            document.getElementById('pointsMessage').style.display = 'block';
+            document.getElementById('pointsMessage').innerText = `คุณได้สะสม ${points} แต้ม จากการส่งขยะประเภท ${item} จำนวน ${quantity} กิโลกรัม`;
 
-            // รีเซ็ตฟอร์ม
             document.getElementById('sellForm').reset();
         });
     </script>

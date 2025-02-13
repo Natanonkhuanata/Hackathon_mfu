@@ -97,16 +97,16 @@
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
             var confirmPassword = document.getElementById("confirmPassword").value;
-
+    
             // ซ่อนข้อความผิดพลาดก่อน
             document.getElementById("errorFullname").style.display = "none";
             document.getElementById("errorUsername").style.display = "none";
             document.getElementById("errorPassword").style.display = "none";
             document.getElementById("errorConfirmPassword").style.display = "none";
-
+    
             // ตรวจสอบว่ากรอกข้อมูลครบหรือไม่
             var isValid = true;
-
+    
             if (fullname === "") {
                 document.getElementById("errorFullname").style.display = "block";
                 isValid = false;
@@ -123,20 +123,17 @@
                 document.getElementById("errorConfirmPassword").style.display = "block";
                 isValid = false;
             }
-
-            // ถ้าทุกอย่างถูกต้องให้แสดง Alert และเปลี่ยนไปหน้า Login
-            if (isValid) {
-                window.location.href = "learnweb.html";
-            }
-            else {
-                alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
-            }
-        }
-
-        function goBack() {
-            window.location.href = "login.html";
     
+            // ถ้าทุกอย่างถูกต้องให้บันทึกข้อมูลลงใน localStorage และเปลี่ยนไปหน้า Login
+            if (isValid) {
+                localStorage.setItem("username", username); // บันทึกชื่อผู้ใช้
+                localStorage.setItem("password", password); // บันทึกรหัสผ่าน
+                window.location.href = "front_end.html"; // เปลี่ยนไปหน้า Login
+            } else {
+                alert("กรุณาตรวจสอบข้อมูลให้ถูกต้อง");
+            }
         }
     </script>
+    
 </body>
 </html>

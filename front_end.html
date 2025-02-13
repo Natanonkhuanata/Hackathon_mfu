@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,7 +25,7 @@
             width: 100%;
             text-align: center;
             font-size: 32px;
-            color: #003366; /* ใช้สีน้ำเงินเข้ม */
+            color: #003366;
             font-weight: bold;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
@@ -86,15 +88,15 @@
         }
 
         .image-container {
-            margin: 20px 0; /* เพิ่มระยะห่างจากข้อความและปุ่ม */
+            margin: 20px 0;
         }
 
         .image-container img {
-            width: 100%; /* ขนาดภาพตามขนาดของ div */
-            max-width: 300px; /* จำกัดขนาดสูงสุดของภาพ */
+            width: 100%;
+            max-width: 300px;
             height: auto;
             display: block;
-            margin: 0 auto; /* จัดตำแหน่งให้ภาพอยู่ตรงกลาง */
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -105,7 +107,6 @@
     
     <div class="login-container">
         <div class="image-container">
-            <!-- ใส่ path ของรูปภาพใน src ที่ต้องการ -->
             <img src="file:///D:/imagre_hackaton/EnvoiroTech.png" alt="EnvoiroTech Logo">
         </div>
         
@@ -117,16 +118,44 @@
     </div>
 
     <script>
-        function login() {
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-            
-            if (username === "admin" && password === "1234") {
-                window.location.href = "learnweb.html";
-            } else {
-                alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+        // ฟังก์ชันสร้างไฟล์ Excel ทันทีเมื่อหน้าเว็บโหลด
+        function createExcelFile() {
+            let existingData = localStorage.getItem('ข้อมูลขยะเดือนนี้');
+            if (!existingData) {
+                const initialData = [{ Username: "System", Timestamp: new Date().toISOString() }];
+                localStorage.setItem('ข้อมูลขยะเดือนนี้', JSON.stringify(initialData));
+
+                const ws = XLSX.utils.json_to_sheet(initialData);
+                const wb = XLSX.utils.book_new();
+                XLSX.utils.book_append_sheet(wb, ws, 'Data');
+                XLSX.writeFile(wb, 'ข้อมูลขยะเดือนนี้.xlsx');
             }
         }
+
+    // ฟังก์ชันเข้าสู่ระบบและดึงชื่อผู้ใช้จาก localStorage
+    // ฟังก์ชันเข้าสู่ระบบและดึงข้อมูลจาก localStorage
+    function login() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        
+        var storedUsername = localStorage.getItem("username"); // ดึงชื่อผู้ใช้จาก localStorage
+        var storedPassword = localStorage.getItem("password"); // ดึงรหัสผ่านจาก localStorage
+
+        // ตรวจสอบว่าชื่อผู้ใช้และรหัสผ่านตรงกับข้อมูลใน localStorage หรือไม่
+        if (username === storedUsername && password === storedPassword) {
+            window.location.href = "learnweb.html"; // ถ้าข้อมูลตรง
+        } else {
+            alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+        }
+    }
+
+    // ฟังก์ชันนี้จะถูกเรียกเมื่อหน้าโหลด เพื่อแสดงชื่อผู้ใช้ที่บันทึกไว้
+    window.onload = function() {
+        var storedUsername = localStorage.getItem("username");
+        if (storedUsername) {
+            document.getElementById("username").value = storedUsername; // แสดงชื่อผู้ใช้ที่สมัคร
+        }
+    }
     </script>
 </body>
 </html>
