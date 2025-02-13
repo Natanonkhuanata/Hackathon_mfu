@@ -1,10 +1,9 @@
-<!-- ศูนย์เเม่จัน -->
 <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>รับซื้อขยะรีไซเคิล</title>
+    <title>รับซื้อขยะรีไซเคิลศูนย์เเม่จัน</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* ปรับพื้นหลังให้ดูธรรมชาติ */
@@ -142,6 +141,28 @@
             color: #cf2f2f;
             margin-bottom: 10px;
         }
+
+        /* ปรับแต่งปุ่มย้อนกลับ */
+        .back-button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-button-container button {
+            background: #d32f2f; /* สีแดงสด */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background 0.3s ease;
+            width: 200px; /* กำหนดความกว้างให้เหมาะสม */
+        }
+
+        .back-button-container button:hover {
+            background: #c2185b; /* สีแดงเข้มเมื่อโฮเวอร์ */
+        }
     </style>
 </head>
 <body>
@@ -163,6 +184,7 @@
     <section id="sell">
         <form id="sellForm">
             <label for="name">ชื่อ:</label>
+            <div class="address-info">ชื่อของท่านเอง</div>
             <input type="text" id="name" required>
 
             <label for="item">ประเภทขยะ:</label>
@@ -171,14 +193,24 @@
             <label for="quantity">จำนวน (กิโลกรัม):</label>
             <input type="number" id="quantity" required>
 
+            <label for="quantity">เบอร์โทร:</label>
+            <input type="number" id="quantity" required>
+
             <label for="address">ที่อยู่:</label>
             <div class="address-info">ชุมชน/อำเภอ/จังหวัด/รหัสไปรษณี</div>
             <textarea id="address" required></textarea>
 
             <button type="submit">ส่งข้อมูล</button>
+
+            <button type="submit">ส่งข้อมูล</button>
         </form>
         <p id="confirmation" style="display: none;">คำขอของคุณถูกส่งเรียบร้อยแล้ว!</p>
     </section>
+
+    <!-- ปุ่มย้อนกลับ -->
+    <div class="back-button-container">
+        <button onclick="window.history.back()">ย้อนกลับ</button>
+    </div>
 
     <script>
         document.getElementById('sellForm').addEventListener('submit', function(event) {
