@@ -21,66 +21,22 @@
             padding: 15px 0;
             text-align: center;
         }
-        nav ul {
-            list-style: none;
-            padding: 0;
+        .center-buttons {
+            text-align: center;
+            margin: 15px 0;
         }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        section {
-            background: rgba(255, 255, 255, 0.8);
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 800px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        table, th, td {
-            border: 1px solid green;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-        button {
-            background: green;
+        .center-buttons button {
+            background: darkgreen;
             color: white;
             border: none;
             padding: 10px 15px;
+            margin: 5px;
             cursor: pointer;
             border-radius: 5px;
-        }
-        button:hover {
-            background: darkgreen;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 8px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        label {
             font-size: 16px;
-            margin: 10px 0 5px;
-            display: block;
         }
-        #confirmation {
-            color: green;
-            font-size: 18px;
-            font-weight: bold;
+        .center-buttons button:hover {
+            background: green;
         }
     </style>
 </head>
@@ -95,6 +51,12 @@
         </nav>
     </header>
     
+    <div class="center-buttons">
+        <button onclick="location.href='center_mueng.html'">ศูนย์อำเภอเมือง</button>
+        <button onclick="location.href='center_maechan.html'">ศูนย์แม่จัน</button>
+        <button onclick="location.href='center_maelao.html'">ศูนย์แม่ลาว</button>
+    </div>
+    
     <section id="prices">
         <h2>ราคาขยะรีไซเคิล</h2>
         <table>
@@ -102,46 +64,9 @@
                 <th>ประเภทขยะ</th>
                 <th>ราคาต่อกิโลกรัม (บาท)</th>
             </tr>
-            <tr>
-                <td>ขวดพลาสติก</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>กระป๋องอลูมิเนียม</td>
-                <td>15</td>
-            </tr>
-            <tr>
-                <td>ขวดแก้ว</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>ทองแดงใหญ่ปอกสวยใหม่</td>
-                <td>287.00</td>
-            </tr>
-            <tr>
-                <td>ทองแดงเล็กปอกสวยใส</td>
-                <td>270.00</td>
-            </tr>
-            <tr>
-                <td>ทองแดงปอกช๊อตดำ</td>
-                <td>265.00</td>
-            </tr>
-            <tr>
-                <td>ท่อ PVC ฟ้า</td>
-                <td>4.00</td>
-            </tr>
-            <tr>
-                <td>ลีโอ (พร้อมลัง)</td>
-                <td>11.00</td>
-            </tr>
-            <tr>
-                <td>ช้าง (พร้อมลัง)</td>
-                <td>11.00</td>
-            </tr>
-            <tr>
-                <td>สิงห์ (พร้อมลัง)</td>
-                <td>10.00</td>
-            </tr>
+            <tr><td>ขวดพลาสติก</td><td>5</td></tr>
+            <tr><td>กระป๋องอลูมิเนียม</td><td>15</td></tr>
+            <tr><td>ขวดแก้ว</td><td>3</td></tr>
         </table>
     </section>
     
@@ -163,9 +88,14 @@
 
             <button type="submit">ส่งข้อมูล</button>
         </form>
-        <p id="confirmation" style="display: none;">คำขอของคุณถูกส่งเรียบร้อยแล้ว!</p>
+        <p id="confirmation" style="display: none; color: green; font-size: 18px; font-weight: bold;">คำขอของคุณถูกส่งเรียบร้อยแล้ว!</p>
     </section>
     
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('sellForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('confirmation').style.display = 'block';
+        });
+    </script>
 </body>
 </html>
