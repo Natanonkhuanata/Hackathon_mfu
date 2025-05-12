@@ -3,6 +3,11 @@
 
 เป็นการเเข่งขัน Hackathon ประเภททีม  ที่ได้รับโจทย์คือ  **การทำธุรกิจจาก
 สิ่งเเวดเเวดล้อม** 
+
+## รางวัลที่ได้รับ
+
+    ได้รับรางวัลชมเชย
+
 ## Canva for presentation
 [>>>  Kick  link](https://www.canva.com/design/DAGe9Ju2d_E/c-GVQ3g4wI-JbTe4xhn1Iw/edit)
 
